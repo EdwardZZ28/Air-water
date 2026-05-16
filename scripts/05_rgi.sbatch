@@ -29,4 +29,4 @@ cd ${OUTDIR}
     -n 16 \
     --include_loose
 
-echo "=== ${LABEL} done ==="
+echo "=== ${LABEL} 完成 ==="
