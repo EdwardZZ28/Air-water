@@ -42,3 +42,15 @@ Reanalysis pipeline for the published study:
 4. `scripts/04_genomad.sbatch` — geNomad plasmid/virus annotation
 5. `scripts/05_rgi.sbatch` — RGI contig ARG annotation
 6. `scripts/06_argsoap.sbatch` — ARGs-OAP reads-based ARG quantification
+
+## Known Issues & Fixes
+
+### ARGs-OAP database indexes not auto-built
+When installing `args_oap` into an existing conda environment, BWA and BLAST indexes for the bundled databases must be built manually:
+
+```bash
+DB=/home/uqnzhai/envs/ch4_tools/lib/python3.10/site-packages/args_oap/db
+bwa index ${DB}/gg85.fasta
+bwa index ${DB}/ko30.fasta
+makeblastdb -in ${DB}/gg85.fasta -dbtype nucl
+```
